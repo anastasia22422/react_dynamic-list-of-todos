@@ -20,7 +20,10 @@ export const App: React.FC = () => {
 
   useEffect(() => {
     getTodos()
-      .then(setOriginTodos)
+      .then((todos) => {
+        setOriginTodos(todos);
+        setTodoList(todos); // Initialize todoList with fetched todos
+      })
       .finally(() => setLoadingStatus(false));
   }, []);
 
